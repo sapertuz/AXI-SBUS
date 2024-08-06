@@ -1,0 +1,603 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<spirit:component xmlns:xilinx="http://www.xilinx.com" xmlns:spirit="http://www.spiritconsortium.org/XMLSchema/SPIRIT/1685-2009" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <spirit:vendor>user.org</spirit:vendor>
+  <spirit:library>user</spirit:library>
+  <spirit:name>SBUS</spirit:name>
+  <spirit:version>1.0</spirit:version>
+  <spirit:busInterfaces>
+    <spirit:busInterface>
+      <spirit:name>M_AXIS</spirit:name>
+      <spirit:busType spirit:vendor="xilinx.com" spirit:library="interface" spirit:name="axis" spirit:version="1.0"/>
+      <spirit:abstractionType spirit:vendor="xilinx.com" spirit:library="interface" spirit:name="axis_rtl" spirit:version="1.0"/>
+      <spirit:master/>
+      <spirit:portMaps>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>TDATA</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>M_AXIS_tdata</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>TLAST</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>M_AXIS_tlast</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>TVALID</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>M_AXIS_tvalid</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>TREADY</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>M_AXIS_tready</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+      </spirit:portMaps>
+    </spirit:busInterface>
+    <spirit:busInterface>
+      <spirit:name>S_AXIS</spirit:name>
+      <spirit:busType spirit:vendor="xilinx.com" spirit:library="interface" spirit:name="axis" spirit:version="1.0"/>
+      <spirit:abstractionType spirit:vendor="xilinx.com" spirit:library="interface" spirit:name="axis_rtl" spirit:version="1.0"/>
+      <spirit:slave/>
+      <spirit:portMaps>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>TDATA</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>S_AXIS_tdata</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>TLAST</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>S_AXIS_tlast</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>TVALID</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>S_AXIS_tvalid</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>TREADY</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>S_AXIS_tready</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+      </spirit:portMaps>
+    </spirit:busInterface>
+    <spirit:busInterface>
+      <spirit:name>rst</spirit:name>
+      <spirit:busType spirit:vendor="xilinx.com" spirit:library="signal" spirit:name="reset" spirit:version="1.0"/>
+      <spirit:abstractionType spirit:vendor="xilinx.com" spirit:library="signal" spirit:name="reset_rtl" spirit:version="1.0"/>
+      <spirit:slave/>
+      <spirit:portMaps>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>RST</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>rst</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+      </spirit:portMaps>
+    </spirit:busInterface>
+    <spirit:busInterface>
+      <spirit:name>clk</spirit:name>
+      <spirit:busType spirit:vendor="xilinx.com" spirit:library="signal" spirit:name="clock" spirit:version="1.0"/>
+      <spirit:abstractionType spirit:vendor="xilinx.com" spirit:library="signal" spirit:name="clock_rtl" spirit:version="1.0"/>
+      <spirit:slave/>
+      <spirit:portMaps>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>CLK</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>clk</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+      </spirit:portMaps>
+      <spirit:parameters>
+        <spirit:parameter>
+          <spirit:name>ASSOCIATED_BUSIF</spirit:name>
+          <spirit:value spirit:id="BUSIFPARAM_VALUE.CLK.ASSOCIATED_BUSIF">M_AXIS:S_AXIS</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>ASSOCIATED_RESET</spirit:name>
+          <spirit:value spirit:id="BUSIFPARAM_VALUE.CLK.ASSOCIATED_RESET">rst</spirit:value>
+        </spirit:parameter>
+      </spirit:parameters>
+    </spirit:busInterface>
+  </spirit:busInterfaces>
+  <spirit:model>
+    <spirit:views>
+      <spirit:view>
+        <spirit:name>xilinx_anylanguagesynthesis</spirit:name>
+        <spirit:displayName>Synthesis</spirit:displayName>
+        <spirit:envIdentifier>:vivado.xilinx.com:synthesis</spirit:envIdentifier>
+        <spirit:language>VHDL</spirit:language>
+        <spirit:modelName>sbus_axis</spirit:modelName>
+        <spirit:fileSetRef>
+          <spirit:localName>xilinx_anylanguagesynthesis_view_fileset</spirit:localName>
+        </spirit:fileSetRef>
+        <spirit:parameters>
+          <spirit:parameter>
+            <spirit:name>viewChecksum</spirit:name>
+            <spirit:value>bbc9c0e6</spirit:value>
+          </spirit:parameter>
+        </spirit:parameters>
+      </spirit:view>
+      <spirit:view>
+        <spirit:name>xilinx_anylanguagebehavioralsimulation</spirit:name>
+        <spirit:displayName>Simulation</spirit:displayName>
+        <spirit:envIdentifier>:vivado.xilinx.com:simulation</spirit:envIdentifier>
+        <spirit:language>VHDL</spirit:language>
+        <spirit:modelName>sbus_axis</spirit:modelName>
+        <spirit:parameters>
+          <spirit:parameter>
+            <spirit:name>viewChecksum</spirit:name>
+            <spirit:value>bbc9c0e6</spirit:value>
+          </spirit:parameter>
+        </spirit:parameters>
+      </spirit:view>
+      <spirit:view>
+        <spirit:name>xilinx_xpgui</spirit:name>
+        <spirit:displayName>UI Layout</spirit:displayName>
+        <spirit:envIdentifier>:vivado.xilinx.com:xgui.ui</spirit:envIdentifier>
+        <spirit:fileSetRef>
+          <spirit:localName>xilinx_xpgui_view_fileset</spirit:localName>
+        </spirit:fileSetRef>
+        <spirit:parameters>
+          <spirit:parameter>
+            <spirit:name>viewChecksum</spirit:name>
+            <spirit:value>7a5b6249</spirit:value>
+          </spirit:parameter>
+        </spirit:parameters>
+      </spirit:view>
+    </spirit:views>
+    <spirit:ports>
+      <spirit:port>
+        <spirit:name>clk</spirit:name>
+        <spirit:wire>
+          <spirit:direction>in</spirit:direction>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>STD_LOGIC</spirit:typeName>
+              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>rst</spirit:name>
+        <spirit:wire>
+          <spirit:direction>in</spirit:direction>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>STD_LOGIC</spirit:typeName>
+              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>sbus_in</spirit:name>
+        <spirit:wire>
+          <spirit:direction>in</spirit:direction>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>STD_LOGIC</spirit:typeName>
+              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>sbus_out</spirit:name>
+        <spirit:wire>
+          <spirit:direction>out</spirit:direction>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>STD_LOGIC</spirit:typeName>
+              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>M_AXIS_tdata</spirit:name>
+        <spirit:wire>
+          <spirit:direction>out</spirit:direction>
+          <spirit:vector>
+            <spirit:left spirit:format="long">15</spirit:left>
+            <spirit:right spirit:format="long">0</spirit:right>
+          </spirit:vector>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>STD_LOGIC_VECTOR</spirit:typeName>
+              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>M_AXIS_tvalid</spirit:name>
+        <spirit:wire>
+          <spirit:direction>out</spirit:direction>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>STD_LOGIC</spirit:typeName>
+              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>M_AXIS_tlast</spirit:name>
+        <spirit:wire>
+          <spirit:direction>out</spirit:direction>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>STD_LOGIC</spirit:typeName>
+              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>M_AXIS_tready</spirit:name>
+        <spirit:wire>
+          <spirit:direction>in</spirit:direction>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>STD_LOGIC</spirit:typeName>
+              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+          <spirit:driver>
+            <spirit:defaultValue spirit:format="long">1</spirit:defaultValue>
+          </spirit:driver>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>S_AXIS_tdata</spirit:name>
+        <spirit:wire>
+          <spirit:direction>in</spirit:direction>
+          <spirit:vector>
+            <spirit:left spirit:format="long">15</spirit:left>
+            <spirit:right spirit:format="long">0</spirit:right>
+          </spirit:vector>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>STD_LOGIC_VECTOR</spirit:typeName>
+              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+          <spirit:driver>
+            <spirit:defaultValue spirit:format="long">0</spirit:defaultValue>
+          </spirit:driver>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>S_AXIS_tvalid</spirit:name>
+        <spirit:wire>
+          <spirit:direction>in</spirit:direction>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>STD_LOGIC</spirit:typeName>
+              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>S_AXIS_tlast</spirit:name>
+        <spirit:wire>
+          <spirit:direction>in</spirit:direction>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>STD_LOGIC</spirit:typeName>
+              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+          <spirit:driver>
+            <spirit:defaultValue spirit:format="long">0</spirit:defaultValue>
+          </spirit:driver>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>S_AXIS_tready</spirit:name>
+        <spirit:wire>
+          <spirit:direction>out</spirit:direction>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>STD_LOGIC</spirit:typeName>
+              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>emergency</spirit:name>
+        <spirit:wire>
+          <spirit:direction>out</spirit:direction>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>STD_LOGIC</spirit:typeName>
+              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+    </spirit:ports>
+    <spirit:modelParameters>
+      <spirit:modelParameter xsi:type="spirit:nameValueTypeType" spirit:dataType="integer">
+        <spirit:name>Fin</spirit:name>
+        <spirit:displayName>Fin</spirit:displayName>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.Fin" spirit:minimum="0" spirit:rangeType="long">100000000</spirit:value>
+      </spirit:modelParameter>
+      <spirit:modelParameter spirit:dataType="integer">
+        <spirit:name>Fsbus</spirit:name>
+        <spirit:displayName>Fsbus</spirit:displayName>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.Fsbus" spirit:minimum="0" spirit:rangeType="long">100000</spirit:value>
+      </spirit:modelParameter>
+      <spirit:modelParameter spirit:dataType="integer">
+        <spirit:name>SbusIntervallMs</spirit:name>
+        <spirit:displayName>Sbusintervallms</spirit:displayName>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.SbusIntervallMs" spirit:minimum="3" spirit:maximum="1000" spirit:rangeType="long">14</spirit:value>
+      </spirit:modelParameter>
+      <spirit:modelParameter spirit:dataType="String">
+        <spirit:name>SbusMode</spirit:name>
+        <spirit:displayName>Sbusmode</spirit:displayName>
+        <spirit:value spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.SbusMode">FRSKY</spirit:value>
+      </spirit:modelParameter>
+      <spirit:modelParameter spirit:dataType="std_logic">
+        <spirit:name>SbusParityCheck</spirit:name>
+        <spirit:displayName>Sbusparitycheck</spirit:displayName>
+        <spirit:value spirit:format="bitString" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.SbusParityCheck" spirit:bitStringLength="1">&quot;1&quot;</spirit:value>
+      </spirit:modelParameter>
+      <spirit:modelParameter spirit:dataType="std_logic">
+        <spirit:name>SbusCheckValue</spirit:name>
+        <spirit:displayName>Sbuscheckvalue</spirit:displayName>
+        <spirit:value spirit:format="bitString" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.SbusCheckValue" spirit:bitStringLength="1">&quot;1&quot;</spirit:value>
+      </spirit:modelParameter>
+      <spirit:modelParameter spirit:dataType="integer">
+        <spirit:name>SbusMinValue</spirit:name>
+        <spirit:displayName>Sbusminvalue</spirit:displayName>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.SbusMinValue" spirit:minimum="0" spirit:rangeType="long">172</spirit:value>
+      </spirit:modelParameter>
+      <spirit:modelParameter spirit:dataType="integer">
+        <spirit:name>SbusMaxValue</spirit:name>
+        <spirit:displayName>Sbusmaxvalue</spirit:displayName>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.SbusMaxValue" spirit:minimum="0" spirit:rangeType="long">1811</spirit:value>
+      </spirit:modelParameter>
+      <spirit:modelParameter spirit:dataType="std_logic">
+        <spirit:name>EmergencyButton</spirit:name>
+        <spirit:displayName>Emergencybutton</spirit:displayName>
+        <spirit:value spirit:format="bitString" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.EmergencyButton" spirit:bitStringLength="1">&quot;1&quot;</spirit:value>
+      </spirit:modelParameter>
+      <spirit:modelParameter spirit:dataType="integer">
+        <spirit:name>EmergencyChannel</spirit:name>
+        <spirit:displayName>Emergencychannel</spirit:displayName>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.EmergencyChannel" spirit:minimum="0" spirit:maximum="15" spirit:rangeType="long">15</spirit:value>
+      </spirit:modelParameter>
+      <spirit:modelParameter spirit:dataType="integer">
+        <spirit:name>EmergencyTriggerValue</spirit:name>
+        <spirit:displayName>Emergencytriggervalue</spirit:displayName>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.EmergencyTriggerValue" spirit:minimum="0" spirit:maximum="2047" spirit:rangeType="long">172</spirit:value>
+      </spirit:modelParameter>
+      <spirit:modelParameter spirit:dataType="String">
+        <spirit:name>EmergencyTrigger</spirit:name>
+        <spirit:displayName>Emergencytrigger</spirit:displayName>
+        <spirit:value spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.EmergencyTrigger">></spirit:value>
+      </spirit:modelParameter>
+    </spirit:modelParameters>
+  </spirit:model>
+  <spirit:fileSets>
+    <spirit:fileSet>
+      <spirit:name>xilinx_anylanguagesynthesis_view_fileset</spirit:name>
+      <spirit:file>
+        <spirit:name>src/axis_master.vhd</spirit:name>
+        <spirit:fileType>vhdlSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>src/axis_slave.vhd</spirit:name>
+        <spirit:fileType>vhdlSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>../utils/clock_divider.vhd</spirit:name>
+        <spirit:fileType>vhdlSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>../utils/sbus_tx.vhd</spirit:name>
+        <spirit:fileType>vhdlSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>../utils/sbus_rx.vhd</spirit:name>
+        <spirit:fileType>vhdlSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>src/sbus_axis.vhd</spirit:name>
+        <spirit:fileType>vhdlSource</spirit:fileType>
+        <spirit:userFileType>CHECKSUM_8fe22d35</spirit:userFileType>
+      </spirit:file>
+    </spirit:fileSet>
+    <spirit:fileSet>
+      <spirit:name>xilinx_xpgui_view_fileset</spirit:name>
+      <spirit:file>
+        <spirit:name>xgui/SBUS_v1_0.tcl</spirit:name>
+        <spirit:fileType>tclSource</spirit:fileType>
+        <spirit:userFileType>CHECKSUM_7a5b6249</spirit:userFileType>
+        <spirit:userFileType>XGUI_VERSION_2</spirit:userFileType>
+      </spirit:file>
+    </spirit:fileSet>
+  </spirit:fileSets>
+  <spirit:description>SBUS_v1_0</spirit:description>
+  <spirit:parameters>
+    <spirit:parameter>
+      <spirit:name>Fin</spirit:name>
+      <spirit:displayName>Fin</spirit:displayName>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.Fin" spirit:minimum="0" spirit:rangeType="long">100000000</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>Fsbus</spirit:name>
+      <spirit:displayName>Fsbus</spirit:displayName>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.Fsbus" spirit:minimum="0" spirit:rangeType="long">100000</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>SbusIntervallMs</spirit:name>
+      <spirit:displayName>Sbusintervallms</spirit:displayName>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.SbusIntervallMs" spirit:minimum="3" spirit:maximum="1000" spirit:rangeType="long">14</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>SbusMode</spirit:name>
+      <spirit:displayName>Sbusmode</spirit:displayName>
+      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.SbusMode">FRSKY</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>SbusParityCheck</spirit:name>
+      <spirit:displayName>Sbusparitycheck</spirit:displayName>
+      <spirit:value spirit:format="bitString" spirit:resolve="user" spirit:id="PARAM_VALUE.SbusParityCheck" spirit:bitStringLength="1">&quot;1&quot;</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>SbusCheckValue</spirit:name>
+      <spirit:displayName>Sbuscheckvalue</spirit:displayName>
+      <spirit:value spirit:format="bitString" spirit:resolve="user" spirit:id="PARAM_VALUE.SbusCheckValue" spirit:bitStringLength="1">&quot;1&quot;</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>SbusMinValue</spirit:name>
+      <spirit:displayName>Sbusminvalue</spirit:displayName>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.SbusMinValue" spirit:minimum="0" spirit:rangeType="long">172</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>SbusMaxValue</spirit:name>
+      <spirit:displayName>Sbusmaxvalue</spirit:displayName>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.SbusMaxValue" spirit:minimum="0" spirit:rangeType="long">1811</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>EmergencyButton</spirit:name>
+      <spirit:displayName>Emergencybutton</spirit:displayName>
+      <spirit:value spirit:format="bitString" spirit:resolve="user" spirit:id="PARAM_VALUE.EmergencyButton" spirit:bitStringLength="1">&quot;1&quot;</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>EmergencyChannel</spirit:name>
+      <spirit:displayName>Emergencychannel</spirit:displayName>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.EmergencyChannel" spirit:minimum="0" spirit:maximum="15" spirit:rangeType="long">15</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>EmergencyTriggerValue</spirit:name>
+      <spirit:displayName>Emergencytriggervalue</spirit:displayName>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.EmergencyTriggerValue" spirit:minimum="0" spirit:maximum="2047" spirit:rangeType="long">172</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>EmergencyTrigger</spirit:name>
+      <spirit:displayName>Emergencytrigger</spirit:displayName>
+      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.EmergencyTrigger">></spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>Component_Name</spirit:name>
+      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.Component_Name" spirit:order="1">sbus_axis_v1_0</spirit:value>
+    </spirit:parameter>
+  </spirit:parameters>
+  <spirit:vendorExtensions>
+    <xilinx:coreExtensions>
+      <xilinx:supportedFamilies>
+        <xilinx:family xilinx:lifeCycle="Beta">azynq</xilinx:family>
+        <xilinx:family xilinx:lifeCycle="Beta">qzynq</xilinx:family>
+        <xilinx:family xilinx:lifeCycle="Beta">zynq</xilinx:family>
+        <xilinx:family xilinx:lifeCycle="Beta">zynquplus</xilinx:family>
+      </xilinx:supportedFamilies>
+      <xilinx:taxonomies>
+        <xilinx:taxonomy>/UserIP</xilinx:taxonomy>
+      </xilinx:taxonomies>
+      <xilinx:displayName>SBUS_v1_0</xilinx:displayName>
+      <xilinx:definitionSource>package_project</xilinx:definitionSource>
+      <xilinx:coreRevision>5</xilinx:coreRevision>
+      <xilinx:coreCreationDateTime>2024-05-30T12:24:00Z</xilinx:coreCreationDateTime>
+      <xilinx:tags>
+        <xilinx:tag xilinx:name="user.org:user:sbus_axis:1.0_ARCHIVE_LOCATION">/home/ariel/Documents/vivado_prjts/robcar/ip_repo/SBUS</xilinx:tag>
+        <xilinx:tag xilinx:name="user.org:user:SBUS:1.0_ARCHIVE_LOCATION">/home/ariel/Documents/vivado_prjts/robcar/ip_repo/SBUS</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@28843910_ARCHIVE_LOCATION">/home/chello/Documents/herbert/pynq/overlays/robcar/ip_repo/SBUS</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@640b86e1_ARCHIVE_LOCATION">/home/chello/Documents/herbert/pynq/overlays/robcar/ip_repo/SBUS</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@d174c1c_ARCHIVE_LOCATION">/home/chello/Documents/herbert/pynq/overlays/robcar/ip_repo/SBUS</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@3921e27_ARCHIVE_LOCATION">/home/chello/Documents/herbert/pynq/overlays/robcar/ip_repo/SBUS</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@2f5c03b_ARCHIVE_LOCATION">/home/chello/Documents/herbert/pynq/overlays/robcar/ip_repo/SBUS</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@191a551_ARCHIVE_LOCATION">/home/chello/Documents/herbert/pynq/overlays/robcar/ip_repo/SBUS</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@76e4716b_ARCHIVE_LOCATION">/home/chello/Documents/herbert/pynq/overlays/robcar/ip_repo/SBUS</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@59a3c85a_ARCHIVE_LOCATION">/home/chello/Documents/herbert/pynq/overlays/robcar/ip_repo/SBUS</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@67827da7_ARCHIVE_LOCATION">/home/chello/Documents/herbert/pynq/overlays/robcar/ip_repo/SBUS</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@634b3056_ARCHIVE_LOCATION">/home/chello/Documents/herbert/pynq/overlays/robcar/ip_repo/SBUS</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@3a197d65_ARCHIVE_LOCATION">/home/chello/Documents/herbert/pynq/overlays/robcar/ip_repo/SBUS</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@224f6901_ARCHIVE_LOCATION">/home/chello/Documents/herbert/pynq/overlays/robcar/ip_repo/SBUS</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@c666a88_ARCHIVE_LOCATION">/home/chello/Documents/herbert/pynq/overlays/robcar/ip_repo/SBUS</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@6e4d8859_ARCHIVE_LOCATION">/home/chello/Documents/herbert/pynq/overlays/robcar/ip_repo/SBUS</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@75b4cbba_ARCHIVE_LOCATION">/home/chello/Documents/herbert/pynq/overlays/robcar/ip_repo/SBUS</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@6bfd07b8_ARCHIVE_LOCATION">/home/chello/Documents/herbert/pynq/overlays/robcar/ip_repo/SBUS</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@73e0c9d0_ARCHIVE_LOCATION">/home/chello/Documents/herbert/pynq/overlays/robcar/ip_repo/SBUS</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@6718fc05_ARCHIVE_LOCATION">/home/chello/Documents/herbert/pynq/overlays/robcar/ip_repo/SBUS</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@56104cad_ARCHIVE_LOCATION">/home/chello/Documents/herbert/pynq/overlays/robcar/ip_repo/SBUS</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@56f860b_ARCHIVE_LOCATION">/home/chello/Documents/herbert/pynq/overlays/robcar/ip_repo/SBUS</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@fada4f1_ARCHIVE_LOCATION">/home/chello/Documents/herbert/pynq/overlays/robcar/ip_repo/SBUS</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@a9d0ab2_ARCHIVE_LOCATION">/home/chello/Documents/herbert/pynq/overlays/robcar/ip_repo/SBUS</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@22999cd4_ARCHIVE_LOCATION">/home/chello/Documents/herbert/pynq/overlays/robcar/ip_repo/SBUS</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@4d59eb08_ARCHIVE_LOCATION">/home/chello/Documents/herbert/pynq/overlays/robcar/ip_repo/SBUS</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@73d167f4_ARCHIVE_LOCATION">/home/chello/Documents/herbert/pynq/overlays/robcar/ip_repo/SBUS</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@5e64af0c_ARCHIVE_LOCATION">/home/chello/Documents/herbert/pynq/overlays/robcar/ip_repo/SBUS</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@ef563bd_ARCHIVE_LOCATION">/home/chello/Documents/herbert/pynq/overlays/robcar/ip_repo/SBUS</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@5190deba_ARCHIVE_LOCATION">/home/chello/Documents/herbert/pynq/overlays/robcar/ip_repo/SBUS</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@28c8f07_ARCHIVE_LOCATION">/home/chello/Documents/herbert/pynq/overlays/robcar/ip_repo/SBUS</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@64e07211_ARCHIVE_LOCATION">/home/chello/Documents/herbert/pynq/overlays/robcar/ip_repo/SBUS</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@43d63363_ARCHIVE_LOCATION">/home/chello/Documents/herbert/pynq/overlays/robcar/ip_repo/SBUS</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@4dc0a820_ARCHIVE_LOCATION">/home/chello/Documents/herbert/pynq/overlays/robcar/ip_repo/SBUS</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@47303efc_ARCHIVE_LOCATION">/home/chello/Documents/herbert/pynq/overlays/robcar/ip_repo/SBUS</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@288c281a_ARCHIVE_LOCATION">/home/chello/Documents/herbert/pynq/overlays/robcar/ip_repo/SBUS</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@c2c644e_ARCHIVE_LOCATION">/home/chello/Documents/herbert/pynq/overlays/robcar/ip_repo/SBUS</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@7eb7cc15_ARCHIVE_LOCATION">/home/chello/Documents/herbert/pynq/overlays/robcar/ip_repo/SBUS</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@51793e56_ARCHIVE_LOCATION">/home/chello/Documents/herbert/pynq/overlays/robcar/ip_repo/SBUS</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@36a1cdbc_ARCHIVE_LOCATION">/home/chello/Documents/herbert/pynq/overlays/robcar/ip_repo/SBUS</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@16d77653_ARCHIVE_LOCATION">/home/chello/Documents/herbert/pynq/overlays/robcar/ip_repo/SBUS</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@2d675f84_ARCHIVE_LOCATION">/home/chello/Documents/herbert/pynq/overlays/robcar/ip_repo/SBUS</xilinx:tag>
+      </xilinx:tags>
+    </xilinx:coreExtensions>
+    <xilinx:packagingInfo>
+      <xilinx:xilinxVersion>2023.2</xilinx:xilinxVersion>
+      <xilinx:checksum xilinx:scope="busInterfaces" xilinx:value="618074d0"/>
+      <xilinx:checksum xilinx:scope="fileGroups" xilinx:value="49e7d6a6"/>
+      <xilinx:checksum xilinx:scope="ports" xilinx:value="da23fd91"/>
+      <xilinx:checksum xilinx:scope="hdlParameters" xilinx:value="4df404ad"/>
+      <xilinx:checksum xilinx:scope="parameters" xilinx:value="a017fabb"/>
+    </xilinx:packagingInfo>
+  </spirit:vendorExtensions>
+</spirit:component>
